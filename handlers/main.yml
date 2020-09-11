@@ -1,0 +1,11 @@
+---
+- name: start-influxdb
+  service:
+    name: influxdb
+    state: started
+    enabled: yes
+
+- name: restart-influxdb
+  service:
+    name: influxdb
+    state: restarted
