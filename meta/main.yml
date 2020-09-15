@@ -1,6 +1,6 @@
 galaxy_info:
   author: mkayontour
-  description: Install and configures InfluDB
+  description: Install and configures InfluDB on Rhel, Debian and Ubuntu
   company: NETWAYS GmbH
   license: Apache-2.0
   min_ansible_version: 2.5

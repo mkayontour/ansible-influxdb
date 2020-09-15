@@ -3,6 +3,12 @@
   hosts: all
   gather_facts: true
   tasks:
+    - name: install python-pip on RHEL
+      yum:
+        name: python-pip
+        state: present
+      when: ansible_os_family == "RedHat"
+      
     - name: apt install pip
       apt:
         name: "{{ item }}"
