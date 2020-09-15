@@ -1,0 +1,17 @@
+---
+- name: prepare container
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: apt install pip
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+        state: present
+      loop:
+        - python-pip
+      when: ( ansible_os_family == "Debian" and ansible_distribution == "Ubuntu" )
+
+    - name: install pip over easy install
+      command: easy_install -U pip
+      when:  ( ansible_os_family == "Debian" and ansible_distribution_major_version == "10" )

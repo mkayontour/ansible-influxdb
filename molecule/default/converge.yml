@@ -1,0 +1,19 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    influxdb_admin_username: admin
+    influxdb_admin_password: admin123
+    influxdb_databases:
+      - name: telegraf-metrics
+        state: present
+    influxdb_users:
+      - name: telegraf
+        password: telegraf
+        grants:
+          - database: telegraf-metrics
+            privilege: "WRITE"
+  tasks:
+    - name: "Include mkayontour.influxdb"
+      include_role:
+        name: "mkayontour.influxdb"
