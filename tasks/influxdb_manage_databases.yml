@@ -1,13 +1,13 @@
 - name: manage databases
   influxdb_database:
     database_name: "{{ db.name }}"
-    login_username: "{{ db.username | default(influxdb_admin_username) }}"
-    login_password: "{{ db.password | default(influxdb_admin_password) }}"
+    login_username: "{{ db.login_username | default(influxdb_admin_username) }}"
+    login_password: "{{ db.login_password | default(influxdb_admin_password) }}"
     hostname: "{{ db.hostname | default(influxdb_config_global['bind-address'].split(':')[0]) }}"
     port: "{{ db.port | default(influxdb_config_global['bind-address'].split(':')[1]) }}"
     proxies: "{{ db.proxies | default(omit) }}"
     retries: "{{ db.retries | default(omit) }}"
-    ssl: "{{ influxdb_config_http['https-enabled'] | default('false') }}"
+    ssl: "{{ db.ssl | default(influxdb_config_http['https-enabled']) }}"
     state: "{{ db.state }}"
     timeout: "{{ db.timeout | default(omit) }}"
     udp_port: "{{ db.udp_port | default(omit) }}"
@@ -23,14 +23,14 @@
   influxdb_user:
     admin: "{{ user.admin | default(omit) }}"
     grants: "{{ user.grants | default(omit) }}"
-    state: "{{ user.state | default(omit) }}"
+    state: "{{ user.state | default('present') }}"
     user_password: "{{ user.password | default(omit) }}"
     user_name: "{{ user.name }}"
     hostname: "{{ influxdb_config_global['bind-address'].split(':')[0] }}"
     port: "{{ influxdb_config_global['bind-address'].split(':')[1] }}"
-    login_username: "{{ influxdb_admin_username }}"
-    login_password: "{{ influxdb_admin_password }}"
-    ssl: "{{ influxdb_config_http['https-enabled'] | default('false') }}"
+    login_username: "{{ user.login_username | default(influxdb_admin_username) }}"
+    login_password: "{{ user.login_password | default(influxdb_admin_password) }}"
+    ssl: "{{  user.ssl | default(influxdb_config_http['https-enabled']) }}"
   loop: "{{ influxdb_users }}"
   loop_control:
     loop_var: user
