@@ -1,0 +1,31 @@
+- name: Debian - Install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: present
+  when: influxdb_manage_repository
+
+- name: Debian - Add Influxdb repository key
+  apt_key:
+    url: "{{ influxdb_apt_key }}"
+    state: present
+  when: influxdb_manage_repository and influxdb_apt_key
+
+- name: Debian - Add InfluxDB repository
+  apt_repository:
+    repo: "{{ influxdb_apt_url }}"
+    state: present
+  when: influxdb_manage_repository
+
+- name: Debian - Ensure InfluxDB is installed
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  when: influxdb_manage_package
+  notify: start-influxdb
+  loop:
+    - influxdb
+
+- name: Debian - Ensure python influxdb library
+  pip:
+    name: influxdb

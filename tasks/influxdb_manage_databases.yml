@@ -16,6 +16,8 @@
   loop: "{{ influxdb_databases }}"
   loop_control:
     loop_var: db
+  when: influxdb_databases is defined
+
 
 - name: manage users
   influxdb_user:
@@ -32,3 +34,4 @@
   loop: "{{ influxdb_users }}"
   loop_control:
     loop_var: user
+  when: influxdb_users is defined
