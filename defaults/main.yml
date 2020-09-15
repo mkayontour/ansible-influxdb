@@ -20,6 +20,7 @@ influxdb_config_meta:
   logging-enabled: true
 influxdb_config_http:
   enabled: true
+  https-enabled: false
   bind-address: :8086
   auth-enabled: true
   ping-auth-enabled: true
