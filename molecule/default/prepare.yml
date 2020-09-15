@@ -17,6 +17,7 @@
       loop:
         - python3-pip
         - python3-setuptools
+        - gnupg
       when: ( ansible_os_family == "Debian" and ansible_distribution == "Ubuntu" )
 
     - name: install easy_install
@@ -24,6 +25,7 @@
         name: "{{ item }}"
         state: present
       loop:
+        - gnupg
         - python-setuptools
         - python-pip
       when: ( ansible_os_family == "Debian" and ( ansible_distribution_major_version == "10" or ansible_distribution_major_version == "9" ))
