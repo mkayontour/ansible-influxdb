@@ -1,9 +1,3 @@
-- name: check if user exists
-  command: "/usr/bin/influx -execute 'SHOW USERS' -username '{{ influxdb_admin_username }}' -password '{{ influxdb_admin_password }}' -format csv"
-  register: _influxdb_check_user
-  failed_when: false
-  changed_when: false
-
 - name: start influxdb
   service:
     name: influxdb
@@ -16,6 +10,12 @@
     delay: 5
     sleep: 1
     state: started
+
+- name: check if user exists
+  command: "/usr/bin/influx -execute 'SHOW USERS' -username '{{ influxdb_admin_username }}' -password '{{ influxdb_admin_password }}' -format csv"
+  register: _influxdb_check_user
+  failed_when: false
+  changed_when: false
 
 - name: create admin user
   command: /usr/bin/influx -execute "CREATE USER {{ influxdb_admin_username }} WITH PASSWORD '{{ influxdb_admin_password }}' WITH ALL PRIVILEGES"
