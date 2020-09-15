@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/mkayontour/ansible-influxdb.svg?branch=master)](https://travis-ci.org/mkayontour/ansible-influxdb)
+[![Ansible Quality Score](https://img.shields.io/ansible/quality/50067?label=role%20quality)](https://galaxy.ansible.com/mkayontour/influxdb)
+
 Ansible InfluxDB
 =========
 
@@ -9,10 +12,13 @@ Requirements
 
 Two requirements need to be in place at first, the **influxdb python client** should be installed, the role does take care of that.
 
+
 And second, **pip needs to be present** in order to install influxdb python client.
 
 Role Variables
 --------------
+
+### Defaults
 
 The Default variables are all listed below, for every config section of the
 influxdb conf there is its own variable.
@@ -176,3 +182,8 @@ License
 -------
 
 Apache-2.0
+
+Author Information
+------------------
+
+Twitter: @mkayontour
