@@ -15,7 +15,8 @@
         update_cache: yes
         state: present
       loop:
-        - python-pip
+        - python3-pip
+        - python3-setuptools
       when: ( ansible_os_family == "Debian" and ansible_distribution == "Ubuntu" )
 
     - name: install easy_install
