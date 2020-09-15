@@ -59,17 +59,29 @@ influxdb_admin_password: admin
 
 Please consult the params for every config section from the documentation:
 `influxdb_config_global` [global](https://docs.influxdata.com/influxdb/v1.8/administration/config/#global-settings)
+
 `influxdb_config_meta` [meta](https://docs.influxdata.com/influxdb/v1.8/administration/config/#meta)
+
 `influxdb_config_data` [data](https://docs.influxdata.com/influxdb/v1.8/administration/config/#data)
+
 `influxdb_config_http` [http](https://docs.influxdata.com/influxdb/v1.8/administration/config/#http)
+
 `influxdb_config_subscriber` [subscriber](https://docs.influxdata.com/influxdb/v1.8/administration/config/#subscriber)
+
 `influxdb_config_graphite` [graphite](https://docs.influxdata.com/influxdb/v1.8/administration/config/#graphite)
+
 `influxdb_config_monitor` [monitor](https://docs.influxdata.com/influxdb/v1.8/administration/config/#monitor)
+
 `influxdb_config_shard_precreation` [shard-precreation](https://docs.influxdata.com/influxdb/v1.8/administration/config/#shard-precreation)
+
 `influxdb_config_collectd` [collectd](https://docs.influxdata.com/influxdb/v1.8/administration/config/#collectd)
+
 `influxdb_config_continuous_queries`
+
 `influxdb_config_tls`
+
 `influxdb_config_retention`
+
 `influxdb_config_udp`
 
 
