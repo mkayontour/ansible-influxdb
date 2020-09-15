@@ -7,8 +7,9 @@ Pull-Requests and Issues are welcome :)
 Requirements
 ------------
 
-Two requirements need to be in place at first, the influxdb python client should be installed, the role does take care of that.
-And second, pip needs to be installed in order to install influxdb python client.
+Two requirements need to be in place at first, the **influxdb python client** should be installed, the role does take care of that.
+
+And second, **pip needs to be present** in order to install influxdb python client.
 
 Role Variables
 --------------
