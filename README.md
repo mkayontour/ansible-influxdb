@@ -21,7 +21,14 @@ Role Variables
 ### Defaults
 
 The Default variables are all listed below, for every config section of the
-influxdb conf there is its own variable.
+**influxdb.conf** there is its own variable.
+
+Please change the admin password to something more secure then the default:
+
+```
+influxdb_admin_username: admin
+influxdb_admin_password: admin
+```
 
 ```
 ---
@@ -58,6 +65,7 @@ influxdb_admin_password: admin
 ```
 
 Please consult the params for every config section from the documentation:
+
 `influxdb_config_global` [global](https://docs.influxdata.com/influxdb/v1.8/administration/config/#global-settings)
 
 `influxdb_config_meta` [meta](https://docs.influxdata.com/influxdb/v1.8/administration/config/#meta)
