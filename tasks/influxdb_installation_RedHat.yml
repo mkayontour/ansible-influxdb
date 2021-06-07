@@ -20,14 +20,14 @@
   package:
     name: python-pip
     state: present
-  when: {{ ansible_distribution_major_version }} == '7'
+  when: ansible_distribution_major_version == '7'
 
 
 - name: RedHat - Ensure python-pip is there
   package:
     name: python3-pip
     state: present
-  when: {{ ansible_distribution_major_version }} == '8'
+  when: ansible_distribution_major_version == '8'
 
 - name: RedHat - Ensure python influxdb library
   pip:
