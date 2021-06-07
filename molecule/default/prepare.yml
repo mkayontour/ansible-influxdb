@@ -5,7 +5,7 @@
   tasks:
     - name: install python-pip on RHEL7
       yum:
-        name: python-pip
+        name: python-pip,ansible
         state: present
       when: ansible_os_family == "RedHat" and ansible_distribution_major_version == "7"
 
