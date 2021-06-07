@@ -16,6 +16,11 @@
   loop:
     - influxdb
 
+- name: RedHat - Ensure python-pip is there
+  package:
+    name: python-pip
+    state: present
+
 - name: RedHat - Ensure python influxdb library
   pip:
     name: influxdb
