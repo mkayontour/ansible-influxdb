@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mkayontour/ansible-influxdb.svg?branch=master)](https://travis-ci.org/mkayontour/ansible-influxdb)
+[![Build Status](https://www.travis-ci.com/Bbertatum/ansible-influxdb.svg?branch=master)](https://www.travis-ci.com/Bbertatum/ansible-influxdb)
 [![Ansible Quality Score](https://img.shields.io/ansible/quality/50067?label=role%20quality)](https://galaxy.ansible.com/mkayontour/influxdb)
 
 Ansible InfluxDB
