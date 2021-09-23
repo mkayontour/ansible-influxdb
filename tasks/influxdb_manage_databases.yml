@@ -33,6 +33,7 @@
     ssl: "{{  user.ssl | default(influxdb_config_http['https-enabled']) }}"
     udp_port: "{{ user.udp_port | default('4444') }}"
     use_udp: "{{ user.use_udp | default('no') }}"
+    validate_certs: "{{ db.validate_certs | default('false') }}"
   loop: "{{ influxdb_users }}"
   loop_control:
     loop_var: user
