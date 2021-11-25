@@ -1,0 +1,49 @@
+---
+name: CI
+on:
+  push:
+    tags:
+      - v*
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      ANSIBLE_ROLENAME: mkayontour.influxdb
+
+    strategy:
+      # max-parallel: 4
+      matrix:
+        distro: ["centos:centos7", "centos:centos8", "debian:buster", "ubuntu:focal"]
+        python: ['3.6', '3.8', '3.9']
+        ansible: ['2.9', '2.10']
+        scenario: [default]
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install 'ansible~=${{ matrix.ansible }}'
+
+      - name: Install collection
+        run: |
+          mkdir -p ~/.ansible/roles/
+          cp -a ../ansible-influxdb ~/.ansible/roles/$ANSIBLE_ROLENAME
+
+      - name: Test with molecule
+        run: |
+          molecule test -s ${{ matrix.scenario }}
+        env:
+          MOLECULE_DISTRO: ${{ matrix.distro }}
