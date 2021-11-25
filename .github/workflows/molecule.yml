@@ -19,7 +19,7 @@ jobs:
       # max-parallel: 4
       matrix:
         distro: ["centos:centos7", "centos:centos8", "debian:buster", "ubuntu:focal"]
-        python: ['3.6', '3.8', '3.9']
+        python: ['3.6']
         ansible: ['2.9', '2.10']
         scenario: [default]
 
@@ -36,6 +36,7 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install 'ansible~=${{ matrix.ansible }}'
+          python3 -m pip install -r requirements-test.txt
 
       - name: Install collection
         run: |
