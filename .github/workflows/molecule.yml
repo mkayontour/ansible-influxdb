@@ -8,6 +8,10 @@ on:
       - master
   pull_request:
 
+defaults:
+  run:
+    working-directory: 'mkayontour.influxdb'
+
 jobs:
   build:
     runs-on: ubuntu-latest
