@@ -13,7 +13,5 @@
         grants:
           - database: telegraf-metrics
             privilege: "WRITE"
-  tasks:
-    - name: "Include mkayontour.influxdb"
-      include_role:
-        name: "mkayontour.influxdb"
+  roles:
+    - role: mkayontour.influxdb
