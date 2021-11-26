@@ -14,4 +14,4 @@
           - database: telegraf-metrics
             privilege: "WRITE"
   roles:
-    - role: mkayontour.influxdb
+    - role: ansible-influxdb
