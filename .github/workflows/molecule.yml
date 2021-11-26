@@ -38,11 +38,6 @@ jobs:
           python3 -m pip install 'ansible~=${{ matrix.ansible }}'
           python3 -m pip install -r requirements-test.txt
 
-      - name: Install collection
-        run: |
-          mkdir -p ~/.ansible/roles/
-          cp -a ../ansible-influxdb ~/.ansible/roles/$ANSIBLE_ROLENAME
-
       - name: Test with molecule
         run: |
           molecule test -s ${{ matrix.scenario }}
