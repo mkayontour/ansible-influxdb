@@ -1,5 +1,6 @@
-[![Build Status](https://travis-ci.org/mkayontour/ansible-influxdb.svg?branch=master)](https://travis-ci.org/mkayontour/ansible-influxdb)
+[![Build Status](https://img.shields.io/github/workflow/status/mkayontour/ansible-influxdb/CI)](https://github.com/mkayontour/ansible-influxdb/actions/workflows/molecule.yml)
 [![Ansible Quality Score](https://img.shields.io/ansible/quality/50067?label=role%20quality)](https://galaxy.ansible.com/mkayontour/influxdb)
+/github/workflow/status/:user/:repo/:workflow
 
 Ansible InfluxDB
 =========
