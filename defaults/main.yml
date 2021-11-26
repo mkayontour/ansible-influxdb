@@ -4,7 +4,7 @@ influxdb_manage_package: yes
 influxdb_config_dir: /etc/influxdb
 influxdb_config_global:
     reporting-disabled: false
-    bind-address: 127.0.0.1:8086
+    bind-address: 127.0.0.1:8088
 influxdb_config_graphite:
   - enabled: false
     tags:
@@ -21,7 +21,7 @@ influxdb_config_meta:
 influxdb_config_http:
   enabled: true
   https-enabled: false
-  bind-address: :8086
+  bind-address: 127.0.0.1:8086
   auth-enabled: true
   ping-auth-enabled: true
 influxdb_config_data:
