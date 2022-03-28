@@ -15,18 +15,18 @@
     - config
 
 - name: include influxdb installation
-  include: "influxdb_installation_{{ ansible_os_family }}.yml"
+  include_tasks: "influxdb_installation_{{ ansible_os_family }}.yml"
   tags:
     - install
 
 - name: include influxdb configuration
-  include: "influxdb_configuration.yml"
+  import_tasks: "influxdb_configuration.yml"
   tags:
     - config
     - install
 
 - name: include influxdb authorization
-  include: "influxdb_authorization.yml"
+  import_tasks: influxdb_authorization.yml
   when: ( influxdb_admin_username and influxdb_admin_password )
   tags:
     - config
@@ -34,7 +34,7 @@
     - manage-content
 
 - name: include influxdb database creation
-  include: "influxdb_manage_databases.yml"
+  import_tasks: "influxdb_manage_databases.yml"
   tags:
     - install
     - manage-content
